@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import TodoList from "./components/TodoList/TodoList";
+import { workTodos, homeTodos } from "./seedData";
 
 class TodoApp extends Component {
   constructor() {
     super();
     this.state = {
-      homeTodos: ["buy milk", "drink juice", "eat lunch"],
-      workTodos: ["learn react", "learn javascript"]
+      homeTodos: workTodos,
+      workTodos: homeTodos
     };
   }
 

@@ -6,7 +6,7 @@ class TodoList extends Component {
     return (
       <div>
         <h1 id="todo-title">{this.props.title}</h1>
-        {/* <hr /> */}
+
         {this.props.todos.map(function(element) {
           return <li>{element}</li>;
         })}
