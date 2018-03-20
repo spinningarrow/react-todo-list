@@ -2,7 +2,7 @@
 
 ### Getting Started
 - Fork and clone repo
-- `cd react-todo-list-lab`
+- `cd todo-list-react-demo`
 - `yarn install`
 - `yarn start`
 
