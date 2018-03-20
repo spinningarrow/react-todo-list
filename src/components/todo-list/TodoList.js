@@ -1,23 +1,25 @@
 import React, { Component } from "react";
+import { todos } from "../../utils/seedData";
 import "./TodoList.css";
 
 class TodoList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: todos
+    };
+  }
+
   render() {
     return (
-      <div>
+      <div id="todo-list">
         <h1 id="todo-title">{this.props.title}</h1>
-
-        {this.props.todos.map(function(element) {
-          return <li>{element}</li>;
+        {this.state.todos.map(function(todo, i) {
+          return <li key={i}>{todo.description}</li>;
         })}
       </div>
     );
   }
 }
-
-// extends React.Component
-// class syntax
-// implement render()
-// prefix `props` with `this` (i.e. this.props)
 
 export default TodoList;
