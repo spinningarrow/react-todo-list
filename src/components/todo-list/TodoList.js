@@ -6,8 +6,11 @@ class TodoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: todos
+      todos: todos,
+      newTodo: { description: "", isCompleted: false }
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -17,8 +20,33 @@ class TodoList extends Component {
         {this.state.todos.map(function(todo, i) {
           return <li key={i}>{todo.description}</li>;
         })}
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Add todo:
+            <input
+              type="text"
+              value={this.state.newTodo.description}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
+  }
+
+  handleChange(event) {
+    this.setState({
+      newTodo: { description: event.target.value, isCompleted: false }
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const todos = [...this.state.todos, this.state.newTodo];
+    this.setState({ todos: todos });
+    this.setState({ newTodo: { description: "", isCompleted: false } });
   }
 }
 
