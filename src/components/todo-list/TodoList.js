@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { todos } from "../../utils/seedData";
+import TodoForm from "../todo-form/TodoForm";
 import "./TodoList.css";
 
 class TodoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: todos,
-      newTodo: { description: "", isCompleted: false }
+      todos: todos
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -20,33 +18,14 @@ class TodoList extends Component {
         {this.state.todos.map(function(todo, i) {
           return <li key={i}>{todo.description}</li>;
         })}
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Add todo:
-            <input
-              type="text"
-              value={this.state.newTodo.description}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <TodoForm submitTodo={this.submitTodo.bind(this)} />
       </div>
     );
   }
 
-  handleChange(event) {
-    this.setState({
-      newTodo: { description: event.target.value, isCompleted: false }
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const todos = [...this.state.todos, this.state.newTodo];
+  submitTodo(newTodo) {
+    const todos = [...this.state.todos, newTodo];
     this.setState({ todos: todos });
-    this.setState({ newTodo: { description: "", isCompleted: false } });
   }
 }
 
