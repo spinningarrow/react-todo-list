@@ -9,7 +9,7 @@ describe("TodoForm", () => {
     const wrapper = shallow(<TodoForm submitTodo={mockHandler} />);
 
     expect(wrapper.find("form")).toHaveLength(1);
-    wrapper.find("form").simulate("submit", { preventDefault() {} });
+    // wrapper.find("form").simulate("submit", { preventDefault() {} });
 
     expect(mockHandler).toBeCalled();
   });
