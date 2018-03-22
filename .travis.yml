@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '9'
+cache:
+  directories:
+  - node_modules
+script:
+- yarn test
+- yarn build
+deploy:
+  provider: heroku
+  app: tranquil-thicket-98701
+  on:
+    repo: thoughtworks-jumpstart/todo-list-react-demo
+  api_key:
+    secure: AFH4GKEEhRnRd0NTIOkXkZTG4jAG84V/jxK/sLY29ooGXrSSJuGbZ9GwTidCBVEJnsTi91uK+lCVGFcXqkM3mMYRREubTSgsv738Vtlp3R2pTD6aZw1jjoBRAEmQwrFu13B1yTMmejShP0ADD8TQd7+DLZrbP4IW05crxWxc9W4oFJe3LluU55T1BDQ2h4M3iXMweor21CbgOH2+1PHmCPOOS5jcFuxR7ad4FDqKJguGANd/8exJS27VbL9c8j6//iQkYMI/q+43NC9xBoWQeVRFhOlnMFlc1Z5Q+5UxffYTRU5A+1n5kXHgR+o9JDPa4PHQRnH/0OSRvyP+AirjCJl9ucClM1HCaeXWazQ8OJFoP88goSL8XOz8vHiHlcH5ffPQ0VryDmWVD+v9aSNd303/QxnW+0daXOClwwhY6uYzcZ+Zd0Dz6P96iZZUBkklujRAsdxFldLql7wjQBYFpaaHNyAKK2FIL4l+j2yl2MFn18+AaHL1kUIIaZlEFX2ni7PkaXlZwJkwrBCmyISnuFhO3L7RqI/dTpWGOi9TYhkzAUB4JbU72Y7PT4JitlFDq+y+mSALqSd7nHijhdgatrIgCtoDzegbmGz4O4VH04lCWUq19toAFOD3Tja+RD+vt5BzI7zxlBcIyXLycx5LLSkj5bV1Sb7rAO1ljuyci90=
