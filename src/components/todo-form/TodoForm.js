@@ -19,7 +19,7 @@ class TodoForm extends Component {
             onChange={this.handleChange.bind(this)}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input id="submit" type="submit" value="Submit" />
       </form>
     );
   }
