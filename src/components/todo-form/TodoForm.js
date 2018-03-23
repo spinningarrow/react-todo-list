@@ -14,6 +14,7 @@ class TodoForm extends Component {
         <label>
           Add todo:
           <input
+            id="inputText"
             type="text"
             value={this.state.newTodo.description}
             onChange={this.handleChange.bind(this)}

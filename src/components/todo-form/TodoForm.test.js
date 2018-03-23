@@ -5,12 +5,20 @@ import TodoForm from "./TodoForm";
 describe("TodoForm", () => {
   it("should call function supplied via props", () => {
     const mockHandler = jest.fn();
-
     const wrapper = shallow(<TodoForm submitTodo={mockHandler} />);
 
-    expect(wrapper.find("form")).toHaveLength(1);
     wrapper.find("form").simulate("submit", { preventDefault() {} });
 
     expect(mockHandler).toBeCalled();
   });
+
+  it("should setState when key is pressed", () => {
+    const wrapper = shallow(<TodoForm />);
+
+    wrapper.find("#inputText").simulate("change", { target: { value: "a"} });
+
+    expect(wrapper.state().newTodo.description)
+  });
+
+
 });

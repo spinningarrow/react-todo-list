@@ -15,8 +15,19 @@ describe("TodoList", () => {
   });
 
   it("should add a new todo when submitTodo is called", () => {
+    const newTodo = { description: "bla", isCompleted: false };
     const wrapper = shallow(<TodoList />);
+    const expectedLength = wrapper.state().todos.length + 1;
 
-    wrapper.find("TodoForm").simulate("submit");
+    // recommended method: invoking handler via props
+    wrapper
+      .find("TodoForm")
+      .props()
+      .submitTodo(newTodo);
+
+    // not recommended method: invoking method directly
+    // wrapper.instance().submitTodo(newTodo);
+
+    expect(wrapper.state().todos).toHaveLength(expectedLength);
   });
 });
