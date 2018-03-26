@@ -4,7 +4,7 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    return <TodoList title="todos" />;
+    return <TodoList title="jumpstart todo list" />;
   }
 }
 

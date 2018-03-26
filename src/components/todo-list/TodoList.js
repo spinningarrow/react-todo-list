@@ -34,4 +34,8 @@ TodoList.propTypes = {
   title: PropTypes.string.isRequired
 };
 
+TodoList.defaultProps = {
+  title: "Awesome todo list"
+};
+
 export default TodoList;
