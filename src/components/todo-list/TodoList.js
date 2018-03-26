@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { todos } from "../../utils/seedData";
 import TodoForm from "../todo-form/TodoForm";
 import "./TodoList.css";
@@ -28,5 +29,9 @@ class TodoList extends Component {
     this.setState({ todos: todos });
   }
 }
+
+TodoList.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default TodoList;

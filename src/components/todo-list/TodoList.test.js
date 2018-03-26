@@ -16,7 +16,7 @@ describe("TodoList", () => {
 
   it("should add a new todo when submitTodo is called", () => {
     const newTodo = { description: "bla", isCompleted: false };
-    const wrapper = shallow(<TodoList />);
+    const wrapper = shallow(<TodoList title="a title" />);
     const expectedLength = wrapper.state().todos.length + 1;
 
     // recommended method: invoking handler via props

@@ -13,12 +13,10 @@ describe("TodoForm", () => {
   });
 
   it("should setState when key is pressed", () => {
-    const wrapper = shallow(<TodoForm />);
+    const wrapper = shallow(<TodoForm submitTodo={() => {}} />);
 
-    wrapper.find("#inputText").simulate("change", { target: { value: "a"} });
+    wrapper.find("#inputText").simulate("change", { target: { value: "a" } });
 
-    expect(wrapper.state().newTodo.description)
+    expect(wrapper.state().newTodo.description);
   });
-
-
 });
