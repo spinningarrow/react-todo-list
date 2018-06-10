@@ -3,8 +3,8 @@
 ### Getting Started
 - Fork and clone repo
 - `cd todo-list-react-demo`
-- `yarn install`
-- `yarn start`
+- `npm install`
+- `npm start`
 
 ### Tasks
 1. Create TodoItem component and integrate it with current TodoList (apply what you’ve learned today about state and props)
