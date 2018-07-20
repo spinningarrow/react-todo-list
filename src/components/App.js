@@ -1,9 +1,12 @@
 import React from "react";
-import { todos } from "../utils/seedData";
 
 class App extends React.Component {
   state = {
-    todos: todos,
+    todos: [
+      { description: "buy milk", isCompleted: false },
+      { description: "eat lunch", isCompleted: false },
+      { description: "learn react", isCompleted: false }
+    ],
     newTodo: { description: "", isCompleted: false }
   };
 
