@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class TodoForm extends Component {
   constructor() {
@@ -7,6 +6,20 @@ class TodoForm extends Component {
     this.state = {
       newTodo: { description: "", isCompleted: false }
     };
+  }
+
+  handleChange(event) {
+    this.setState({
+      newTodo: { description: event.target.value, isCompleted: false }
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.submitTodo(this.state.newTodo);
+    this.setState({
+      newTodo: { description: "", isCompleted: false }
+    });
   }
 
   render() {
@@ -25,24 +38,6 @@ class TodoForm extends Component {
       </form>
     );
   }
-
-  handleChange(event) {
-    this.setState({
-      newTodo: { description: event.target.value, isCompleted: false }
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.submitTodo(this.state.newTodo);
-    this.setState({
-      newTodo: { description: "", isCompleted: false }
-    });
-  }
 }
-
-TodoForm.propTypes = {
-  submitTodo: PropTypes.func.isRequired
-};
 
 export default TodoForm;

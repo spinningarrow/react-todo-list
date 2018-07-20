@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { todos } from "../../utils/seedData";
-import TodoForm from "../todo-form/TodoForm";
-import "./TodoList.css";
+import { todos } from "../utils/seedData";
+import TodoForm from "./TodoForm";
 
 class TodoList extends Component {
   constructor() {
@@ -10,6 +8,11 @@ class TodoList extends Component {
     this.state = {
       todos: todos
     };
+  }
+
+  submitTodo(newTodo) {
+    const todos = [...this.state.todos, newTodo];
+    this.setState({ todos: todos });
   }
 
   render() {
@@ -23,19 +26,6 @@ class TodoList extends Component {
       </div>
     );
   }
-
-  submitTodo(newTodo) {
-    const todos = [...this.state.todos, newTodo];
-    this.setState({ todos: todos });
-  }
 }
-
-TodoList.propTypes = {
-  title: PropTypes.string.isRequired
-};
-
-TodoList.defaultProps = {
-  title: "Awesome todo list"
-};
 
 export default TodoList;
