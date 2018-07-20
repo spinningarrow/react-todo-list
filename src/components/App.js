@@ -7,10 +7,18 @@ class App extends React.Component {
     newTodo: { description: "", isCompleted: false }
   };
 
+  toggleTodo = (event, todo) => {
+    todo.isCompleted = !todo.isCompleted;
+
+    this.setState({
+      todos: this.state.todos
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
-    const todos = [...this.state.todos, this.state.newTodo];
+    const todos = this.state.todos.concat(this.state.newTodo);
 
     this.setState({
       todos: todos,
@@ -27,22 +35,33 @@ class App extends React.Component {
   render() {
     return (
       <div id="todo-list">
-        <h1 id="todo-title">So much to do!</h1>
-
-        {this.state.todos.map((todo, i) => {
-          return <li key={i}>{todo.description}</li>;
-        })}
+        <h1>so much to do</h1>
 
         <p>
-          Add todo:
           <input
             id="inputText"
             type="text"
             value={this.state.newTodo.description}
             onChange={this.handleChange}
           />
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button onClick={this.handleSubmit}>Add</button>
         </p>
+
+        <ul>
+          {this.state.todos.map((todo, i) => {
+            const className = todo.isCompleted ? "complete" : "";
+
+            return (
+              <li
+                key={i}
+                className={className}
+                onClick={event => this.toggleTodo(event, todo)}
+              >
+                {todo.description}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
